@@ -6,7 +6,7 @@ import 'network_service_interceptor.dart';
 
 final networkServiceProvider = Provider<Dio>((ref) {
   final options = BaseOptions(
-    baseUrl: 'https://api.openweathermap.org/data/2.5/',
+    baseUrl: 'https://jsonplaceholder.typicode.com',
     // receiveDataWhenStatusError: true,
     connectTimeout: const Duration(seconds: 60),
     receiveTimeout: const Duration(seconds: 60),
