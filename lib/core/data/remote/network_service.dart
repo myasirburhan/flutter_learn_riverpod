@@ -6,7 +6,7 @@ import 'network_service_interceptor.dart';
 
 final networkServiceProvider = Provider<Dio>((ref) {
   final options = BaseOptions(
-    baseUrl: 'https://jsonplaceholder.typicode.com',
+    baseUrl: 'https://192.168.212:8000',
     // receiveDataWhenStatusError: true,
     connectTimeout: const Duration(seconds: 60),
     receiveTimeout: const Duration(seconds: 60),
@@ -15,7 +15,7 @@ final networkServiceProvider = Provider<Dio>((ref) {
   final dio = Dio(options);
 
   final networkServiceInterceptor =
-      ref.watch(networkServiceInterceptorProvider);
+      ref.watch(networkServiceInterceptorProvider(dio));
   dio.interceptors.addAll([
     HttpFormatter(),
     networkServiceInterceptor,
